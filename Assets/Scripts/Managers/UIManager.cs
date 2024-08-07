@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject menuCanvas;
     [SerializeField] private GameObject gameOverLabel;
     [SerializeField] private TMP_Text txtMenuHighScore;
+    [SerializeField] private GameObject pauseMenuCanvas;
 
     private Player player;  
     private ScoreManager scoreManager;
@@ -68,7 +69,7 @@ public class UIManager : MonoBehaviour
     {
         player = GameManager.GetInstance().GetPlayer();
         player.health.OnHealthUpdate += UpdateHealth;
-        
+        gameManager.onGamePaused += GamePaused;
 
         menuCanvas.SetActive(false);
     }
@@ -77,5 +78,11 @@ public class UIManager : MonoBehaviour
     {
         gameOverLabel.SetActive(true);
         menuCanvas.SetActive(true);
+    }
+
+    public void GamePaused()
+    {
+        pauseMenuCanvas.SetActive(!pauseMenuCanvas.activeSelf);
+        Debug.Log("game paused");
     }
 }

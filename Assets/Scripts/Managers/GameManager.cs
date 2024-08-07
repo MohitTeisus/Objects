@@ -37,6 +37,10 @@ public class GameManager : MonoBehaviour
     private Player player;
     private bool isPlaying = false;
 
+    public static bool isPaused;
+    public Action onGamePaused;
+
+
     private static GameManager instance;
 
     public static GameManager GetInstance()
@@ -56,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-       
+        
     }
     
     /// <summary>
@@ -180,5 +184,20 @@ public class GameManager : MonoBehaviour
     public void SetEnemySpawnStatus(bool SetEnemySpawn)
     {
         isEnemySpawning = SetEnemySpawn;
+    }
+
+    public void PauseGame()
+    {
+        if (!isPaused)
+        {
+            Time.timeScale = 0f;
+            isPaused = true;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            isPaused = false;
+        }
+        onGamePaused?.Invoke();
     }
 }
