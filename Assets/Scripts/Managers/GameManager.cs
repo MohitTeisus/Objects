@@ -7,6 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class GameManager : MonoBehaviour
 {
     [Header("Game Attributes")]
+    [SerializeField] private GameObject[] bossEnemyPrefab;
     [SerializeField] private GameObject[] enemyPrefab;
     [SerializeField] private Transform[] spawnPositions;
     [SerializeField] private float enemySpawnRate;
@@ -20,7 +21,8 @@ public class GameManager : MonoBehaviour
 
     public Action OnGameStart;
     public Action OnGameOver;
-    
+
+    private GameObject tempBossEnemy;
     private GameObject tempEnemy;
     public bool isEnemySpawning;
     private int enemiesSpawned;
