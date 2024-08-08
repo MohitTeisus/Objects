@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioSource playerSFX, powerUpSFX, uiSFX;
 
-    [SerializeField] private AudioClip damaged, powerUp, shoot;
+    [SerializeField] private AudioClip damaged, powerUp, shoot, nuke;
 
     public void PlaySound(string soundClip)
     {
@@ -20,6 +20,9 @@ public class SoundManager : MonoBehaviour
                 break;
             case "power-up":
                 powerUpSFX.PlayOneShot(powerUp);
+                break;
+            case "nuke":
+                uiSFX.PlayOneShot(nuke);
                 break;
         }
     }

@@ -7,8 +7,9 @@ public class NukePickup : Pickup
     [SerializeField] private PickupManager pickupManager;
     private UIManager uiManager;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         pickupManager = FindObjectOfType<PickupManager>();   
         uiManager = FindObjectOfType<UIManager>();
     }

@@ -12,6 +12,7 @@ public class Player : PlayableObject
     [SerializeField] private float weaponDamage = 1;
     [SerializeField] private float bulletSpeed = 10;
     [SerializeField] private Bullet bulletPrefab;
+    [SerializeField] private SoundManager soundManager;
     private GameManager gameManager;
 
     private float timer;
@@ -38,6 +39,8 @@ public class Player : PlayableObject
         //OnHealthUpdate?.Invoke(health.GetHealth());
 
         cam = Camera.main;
+
+        soundManager = FindAnyObjectByType<SoundManager>();
     }
 
     /// <summary>
@@ -90,6 +93,7 @@ public class Player : PlayableObject
             {
                 weapon.Shoot(bulletPrefab, this, "Enemy", 3f);
                 machineGunFireTimer = 0;
+                soundManager.PlaySound("shoot");
             }
         }
     }
@@ -125,7 +129,8 @@ public class Player : PlayableObject
 
     public override void GetDamage(float damage)
     {
-        Debug.Log("Player damaged = " + damage); 
+        Debug.Log("Player damaged = " + damage);
+        soundManager.PlaySound("damaged");
         health.DeductHealth(damage);
 
         //update health value form c# action

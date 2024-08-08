@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public ScoreManager scoreManager;
     public PickupManager pickUpManager;
     public UIManager uiManager;
+    public SoundManager soundManager;
 
     public Action OnGameStart;
     public Action OnGameOver;
@@ -58,6 +59,16 @@ public class GameManager : MonoBehaviour
     {
        
     }
+
+    /*void CreateBoss()
+    {
+        //Chooses with boss to spawn
+        int bossIndex = UnityEngine.Random.Range(0, bossEnemyPrefab.Length);
+        tempBossEnemy = Instantiate(bossEnemyPrefab[bossIndex]);
+        tempBossEnemy.transform.position = spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Length)].position;
+
+        //Sets Boss values
+    }*/
     
     /// <summary>
     /// Spawns enemies

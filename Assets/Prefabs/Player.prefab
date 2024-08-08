@@ -301,7 +301,7 @@ Transform:
   m_GameObject: {fileID: 5142389518212649408}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -353,6 +353,7 @@ MonoBehaviour:
   weaponDamage: 1
   bulletSpeed: 10
   bulletPrefab: {fileID: 158042885032206241, guid: 69a3826bbb049a64d9c8912ae7fa33cb, type: 3}
+  soundManager: {fileID: 0}
   machineGunEnabled: 0
 --- !u!114 &6379681462656011299
 MonoBehaviour:
@@ -366,6 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf0fa7ded568db46992916483af861e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
 --- !u!58 &8024701262828109387
 CircleCollider2D:
   m_ObjectHideFlags: 0
