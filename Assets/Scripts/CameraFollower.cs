@@ -20,7 +20,7 @@ public class CameraFollower : MonoBehaviour
         }
         catch (NullReferenceException e)
         {
-
+            Debug.Log("There is no player in the scene" + e);
         }
 
 

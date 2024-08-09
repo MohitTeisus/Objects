@@ -22,6 +22,16 @@ public class Player : PlayableObject
     private float machineGunFireRate = 8;
     private float machineGunFireTimer;
 
+    private float multishotTimer;
+    public bool multishotEnabled;
+
+    private bool isInvincible;
+    private float invincibilityTimer;
+
+    private float baseSpeed;
+    private float speedboostMultiplier;
+    private float speedboostTimer;
+
     private Rigidbody2D playerRB;
 
     public Action onDeath;
@@ -38,6 +48,13 @@ public class Player : PlayableObject
         //OnHealthUpdate?.Invoke(health.GetHealth());
 
         cam = Camera.main;
+
+        baseSpeed = speed;
+    }
+
+    private void Start()
+    {
+
     }
 
     /// <summary>
@@ -63,6 +80,9 @@ public class Player : PlayableObject
         health.RegenHealth();
 
         StartMachineGunTimer(machineGunTimer);
+        StartMultishotTimer(multishotTimer);
+        Invicibility(invincibilityTimer);
+        SpeedboostTimer(speedboostTimer);
     }
 
     public void StartMachineGunTimer(float timer)
@@ -70,14 +90,30 @@ public class Player : PlayableObject
         machineGunTimer = timer;
 
        
-        if (machineGunTimer >= 0)
+        if (machineGunTimer > 0)
         {
             machineGunEnabled = true;
             machineGunTimer -= Time.deltaTime;
         }
-        else if (machineGunTimer < 0)
+        else if (machineGunTimer <= 0)
         {
             machineGunEnabled = false;
+        }
+    }
+
+    public void StartMultishotTimer(float timer)
+    {
+        multishotTimer = timer;
+
+
+        if (multishotTimer > 0)
+        {
+            multishotEnabled = true;
+            multishotTimer -= Time.deltaTime;
+        }
+        else if (multishotTimer <= 0)
+        {
+            multishotEnabled = false;
         }
     }
 
@@ -88,7 +124,7 @@ public class Player : PlayableObject
             machineGunFireTimer += Time.deltaTime;
             if (machineGunFireTimer >= 1 / machineGunFireRate)
             {
-                weapon.Shoot(bulletPrefab, this, "Enemy", 3f);
+                Shoot();
                 machineGunFireTimer = 0;
             }
         }
@@ -112,7 +148,10 @@ public class Player : PlayableObject
     /// </summary>
     public override void Shoot()
     {
-        weapon.Shoot(bulletPrefab, this, "Enemy", 3f);
+        if (multishotEnabled == true)
+            weapon.ShootMultiple(bulletPrefab, this, "Enemy", 3f);
+        else
+            weapon.Shoot(bulletPrefab, this, "Enemy", 3f);
     }
 
     public override void Die()
@@ -125,6 +164,9 @@ public class Player : PlayableObject
 
     public override void GetDamage(float damage)
     {
+        if (isInvincible)
+            return;
+
         Debug.Log("Player damaged = " + damage); 
         health.DeductHealth(damage);
 
@@ -133,6 +175,42 @@ public class Player : PlayableObject
 
         if (health.GetHealth() <= 0)
             Die();
+    }
+
+    public void Invicibility(float timer)
+    {
+        invincibilityTimer = timer;
+
+        if (invincibilityTimer > 0)
+        {
+            isInvincible = true;
+            multishotTimer -= Time.deltaTime;
+        }
+        else if (invincibilityTimer <= 0)
+        {
+            isInvincible = false;
+        }
+    }
+
+    public void SpeedboostTimer(float timer)
+    {
+        speedboostTimer = timer;
+       
+        if (speedboostTimer > 0)
+        {
+            speedboostTimer -= Time.deltaTime;
+        }
+        else if (speedboostTimer <= 0)
+        {
+            speed = baseSpeed;
+        }
+    }
+
+    public void SetSpeedMult(float _speedMultiplier)
+    {
+        Mathf.Clamp(speed, 0, 2);
+        speedboostMultiplier = _speedMultiplier;
+        speed *= speedboostMultiplier;
     }
 
     public override void Attack(float interval)

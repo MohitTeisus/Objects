@@ -156,15 +156,24 @@ public class GameManager : MonoBehaviour
     public void StopGame()
     {
         scoreManager.SetHighScore();
+        isPlaying = false;
+
+        if (isPaused)
+            PauseGame();
+
+        if (player.gameObject.activeSelf == true)
+            Destroy(player.gameObject);
 
         StartCoroutine(GameStopper());
     }
 
     IEnumerator GameStopper()
     {
+        
         SetEnemySpawnStatus(false);
         yield return new WaitForSeconds(2.0f);
-        isPlaying = false;
+        
+        
 
         //Delete All Enemies
         foreach (Enemy item in FindObjectsOfType(typeof(Enemy)))
@@ -177,6 +186,9 @@ public class GameManager : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
+
+      
+        
 
         OnGameOver?.Invoke();
     }

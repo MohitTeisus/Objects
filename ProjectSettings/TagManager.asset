@@ -39,8 +39,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 1515507763
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Environment
+    uniqueID: 1097213737
     locked: 0
   - name: Ui
     uniqueID: 3361478873

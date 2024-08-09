@@ -5,15 +5,27 @@ using UnityEngine.UI;
 
 public class CooldownDisplay : MonoBehaviour
 {
-    [SerializeField] private Image cooldownIMG;
-    private float cooldown;
+    [SerializeField] private Image mgCooldownIMG;
+    [SerializeField] private Image msCooldownIMG;
+    [SerializeField] private Image invincibilityCooldownIMG;
+    [SerializeField] private Image speedboostCooldownIMG;
 
+    private float mgCooldown;
+    private float msCooldown;
+    private float invincibilityCooldown;
+    private float speedboostCooldown;
 
     private void Start()
     {
-        cooldownIMG.fillAmount = 0f; 
-        cooldown = 0;
-        
+        mgCooldownIMG.fillAmount = 0f; 
+        msCooldownIMG.fillAmount = 0f;
+        invincibilityCooldownIMG.fillAmount = 0f;
+        speedboostCooldownIMG.fillAmount = 0f;
+
+        mgCooldown = 0;
+        msCooldown = 0;
+        invincibilityCooldown = 0;
+        speedboostCooldown = 0;
     }
 
     private void Update()
@@ -21,15 +33,34 @@ public class CooldownDisplay : MonoBehaviour
         CooldownDecrease();
     }
 
-    public void CooldownUI(float _cooldown)
+    public void CooldownUI(float _cooldown, int index)
     {
-        cooldown = _cooldown;
-        Debug.Log(cooldown);
-        cooldownIMG.fillAmount = 1.0f;
+        switch (index)
+        {
+            case 0:
+                mgCooldown = _cooldown;
+                mgCooldownIMG.fillAmount = 1.0f;
+                break;
+            case 1:
+                msCooldown = _cooldown;
+                msCooldownIMG.fillAmount = 1.0f;
+                break;
+            case 2:
+                invincibilityCooldown = _cooldown;
+                invincibilityCooldownIMG.fillAmount = 1.0f; 
+                break;
+            case 3:
+                speedboostCooldown = _cooldown;
+                speedboostCooldownIMG.fillAmount = 1.0f;
+                break;
+        }
     }
 
     private void CooldownDecrease()
     {
-        cooldownIMG.fillAmount -= 1.0f / cooldown * Time.deltaTime;
+        mgCooldownIMG.fillAmount -= 1.0f / mgCooldown * Time.deltaTime;
+        msCooldownIMG.fillAmount -= 1.0f / msCooldown * Time.deltaTime;
+        invincibilityCooldownIMG.fillAmount -= 1.0f / invincibilityCooldown * Time.deltaTime;
+        speedboostCooldownIMG.fillAmount -= 1.0f / speedboostCooldown * Time.deltaTime;
     }
 }

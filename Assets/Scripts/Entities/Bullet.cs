@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
 
     void Move()
     {
-        transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+        transform.Translate(moveSpeed * Time.deltaTime * Vector2.right);
     }
 
     void Damage(IDamageable damageable)
