@@ -13,11 +13,11 @@ public class MeleeBossEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        health = new Health(2, 0, 2);
+        health = new Health(25, 1, 25);
         setSpeed = speed;
     }
 
-    public void SetMeleeEnemy(float _attackRange, float _attackTime)
+    public void SetMeleeBossEnemy(float _attackRange, float _attackTime)
     {
         attackRange = _attackRange;
         attackTime = _attackTime;

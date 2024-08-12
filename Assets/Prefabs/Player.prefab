@@ -281,9 +281,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9138836449487052517}
   - component: {fileID: 7232995106134970407}
+  - component: {fileID: 8024701262828109387}
   - component: {fileID: 8663466711571127942}
   - component: {fileID: 6379681462656011299}
-  - component: {fileID: 8024701262828109387}
   - component: {fileID: 7695445513751489188}
   m_Layer: 0
   m_Name: Player
@@ -336,38 +336,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8663466711571127942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5142389518212649408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b4110958aa93ef4696ff2ec7635d947, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 300
-  cam: {fileID: 0}
-  weaponDamage: 1
-  bulletSpeed: 10
-  bulletPrefab: {fileID: 158042885032206241, guid: 69a3826bbb049a64d9c8912ae7fa33cb, type: 3}
-  soundManager: {fileID: 0}
-  machineGunEnabled: 0
---- !u!114 &6379681462656011299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5142389518212649408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bf0fa7ded568db46992916483af861e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundManager: {fileID: 0}
 --- !u!58 &8024701262828109387
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -403,6 +371,38 @@ CircleCollider2D:
   m_Offset: {x: 0.01410386, y: 0}
   serializedVersion: 2
   m_Radius: 0.35323265
+--- !u!114 &8663466711571127942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5142389518212649408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4110958aa93ef4696ff2ec7635d947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 300
+  cam: {fileID: 0}
+  weaponDamage: 1
+  bulletSpeed: 10
+  bulletPrefab: {fileID: 158042885032206241, guid: 69a3826bbb049a64d9c8912ae7fa33cb, type: 3}
+  soundManager: {fileID: 0}
+  machineGunEnabled: 0
+--- !u!114 &6379681462656011299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5142389518212649408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf0fa7ded568db46992916483af861e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
 --- !u!114 &7695445513751489188
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2231,11 +2231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3573eb7b39f007a4f8379b55164882b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossEnemyPrefab:
-  - {fileID: 7957771980087489816, guid: e6d0717d29b11f544adbbc0c4d1151c2, type: 3}
-  - {fileID: 1252903276153836124, guid: 324423c08f8dd5a499750f273d2981f4, type: 3}
-  - {fileID: 8825576077597696594, guid: 041881dac5a61d54d9e0c5b02206422e, type: 3}
-  - {fileID: 6765761446445040805, guid: c82464338bd9c5d41a2db91996abc851, type: 3}
+  bossEnemyPrefab: []
   enemyPrefab:
   - {fileID: 7957771980087489816, guid: 20271f9466109de4880e24fcf9e6d6dc, type: 3}
   - {fileID: 1252903276153836124, guid: 0a3417996c2134f48a8c872a8cc276ca, type: 3}

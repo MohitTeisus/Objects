@@ -5,7 +5,9 @@ using UnityEngine;
 public class MachineGunBossEnemy : Enemy
 {
     [SerializeField] private float shootRange, fireRate;
-    [SerializeField] private Bullet bulletPrefab;
+    [SerializeField] private GameObject explodingEnemy;
+
+    private Weapon explodingWeapon = new Weapon("Exploder", 20f, 0f);
 
     private float timer = 0;
     private float setSpeed = 0;
@@ -19,7 +21,7 @@ public class MachineGunBossEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        health = new Health(1, 0, 1);
+        health = new Health(10, 0, 10);
         setSpeed = speed;
     }
 
@@ -47,6 +49,11 @@ public class MachineGunBossEnemy : Enemy
 
     public override void Shoot()
     {
-        weapon.Shoot(bulletPrefab, this, "Player", 6f);
+        //Spawns exploding enemies
+        explodingEnemy = Instantiate(explodingEnemy);
+        explodingEnemy.transform.position = this.transform.position;
+        //Gives weapon
+        explodingEnemy.GetComponent<Enemy>().weapon = explodingWeapon;
+        explodingEnemy.GetComponent<ExplodingEnemy>().SetExplodingEnemy(1.5f, 3, 0.75f);
     }
 }

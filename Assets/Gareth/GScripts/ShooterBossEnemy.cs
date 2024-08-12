@@ -11,7 +11,7 @@ public class ShooterBossEnemy : Enemy
     private float timer = 0;
     private float setSpeed = 0;
 
-    public void SetShooterEnemy(float _shootRange, float _fireRate)
+    public void SetShooterBossEnemy(float _shootRange, float _fireRate)
     {
         fireRate = _fireRate;
         shootRange = _shootRange;
@@ -20,7 +20,7 @@ public class ShooterBossEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        health = new Health(1, 0, 1);
+        health = new Health(10, 0, 10);
         setSpeed = speed;
         lineRenderer = gameObject.GetComponent<LineRenderer>();
         lineRenderer.enabled = false;

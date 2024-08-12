@@ -219,9 +219,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  shootRange: 0
-  fireRate: 0
-  bulletPrefab: {fileID: 8826469470413904193, guid: 2ccca3449786b5441b613fc31a2a71a2, type: 3}
+  shootRange: 20
+  fireRate: 3
+  bulletPrefab: {fileID: 8826469470413904193, guid: 3b4a6f0dc19c3a448b77a7b3c50dd530, type: 3}
 --- !u!50 &643288668113805151
 Rigidbody2D:
   serializedVersion: 4
@@ -382,7 +382,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.013743639, y: -0.006654918}

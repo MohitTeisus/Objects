@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
     private Weapon machineGunWeapon = new Weapon("MachineGun", 1.5f, 3f);
     private Weapon shooterWeapon = new Weapon("Shooter", 5f, 14f);
 
+    private Weapon meleeBossWeapon = new Weapon("Melee", 1f, 0f);
+    private Weapon explodingBossWeapon = new Weapon("Exploder", 100f, 0f);
+    private Weapon shooterBossWeapon = new Weapon("Shooter", 5f, 14f);
 
 
     private Player player;
@@ -60,7 +63,7 @@ public class GameManager : MonoBehaviour
        
     }
 
-    /*void CreateBoss()
+    void CreateBoss()
     {
         //Chooses with boss to spawn
         int bossIndex = UnityEngine.Random.Range(0, bossEnemyPrefab.Length);
@@ -68,7 +71,23 @@ public class GameManager : MonoBehaviour
         tempBossEnemy.transform.position = spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Length)].position;
 
         //Sets Boss values
-    }*/
+        switch (bossIndex)
+        {
+            case 0:
+                tempBossEnemy.GetComponent<Enemy>().weapon = meleeBossWeapon;
+                tempBossEnemy.GetComponent<MeleeBossEnemy>().SetMeleeBossEnemy(2, 0.25f);
+                break;
+            case 1:
+                tempBossEnemy.GetComponent<Enemy>().weapon = explodingBossWeapon;
+                tempBossEnemy.GetComponent<ExplodingBossEnemy>().SetExplodingBossEnemy(1.5f, 3, 0.75f);
+                break;
+            case 2:
+                tempBossEnemy.GetComponent<Enemy>().weapon = shooterBossWeapon;
+                tempBossEnemy.GetComponent<ShooterBossEnemy>().SetShooterBossEnemy(2, 0.25f);
+                break;
+
+        }
+    }
     
     /// <summary>
     /// Spawns enemies

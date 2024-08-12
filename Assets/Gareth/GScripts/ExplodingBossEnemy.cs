@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExplodingBossEnemy : Enemy
 {
@@ -8,8 +9,10 @@ public class ExplodingBossEnemy : Enemy
     [SerializeField] private float explodeRange;
     [SerializeField] private float explodeDelay;
 
-    //[SerializeField] private Image explosionTimerUI;
+    [SerializeField] private Image explosionTimerUI;
     private float opacity;
+
+    private Player player;
 
     private float timer = 0;
     private float setSpeed = 0;
@@ -17,11 +20,14 @@ public class ExplodingBossEnemy : Enemy
     protected override void Start()
     {
         base.Start();
+        target = GameObject.FindWithTag("Explode").transform;
         health = new Health(1, 0, 1);
         setSpeed = speed;
+
+        player = GameObject.FindAnyObjectByType<Player>();
     }
 
-    public void SetExplodingEnemy(float _explodeStartRange, float _attackRange, float _attackDelay)
+    public void SetExplodingBossEnemy(float _explodeStartRange, float _attackRange, float _attackDelay)
     {
         explodeStartRange = _explodeStartRange;
         explodeRange = _attackRange;
@@ -57,13 +63,13 @@ public class ExplodingBossEnemy : Enemy
     {
         if (Vector2.Distance(transform.position, target.position) < explosionRange)
         {
-            target.GetComponent<IDamageable>().GetDamage(weapon.GetWeaponDamage());
+            player.GetComponent<IDamageable>().GetDamage(weapon.GetWeaponDamage());
         }
     }
 
     public void ExplosionUIReset()
     {
-        //explosionTimerUI.fillAmount = 0f;
+        explosionTimerUI.fillAmount = 0f;
         opacity = 0f;
     }
 
@@ -71,7 +77,7 @@ public class ExplodingBossEnemy : Enemy
     {
 
         opacity = timer;
-        //explosionTimerUI.color = new Color(255f, 255f, 255f, opacity);
-        //explosionTimerUI.fillAmount += 1.0f / explodeDelay * Time.deltaTime;
+        explosionTimerUI.color = new Color(255f, 255f, 255f, opacity);
+        explosionTimerUI.fillAmount += 1.0f / explodeDelay * Time.deltaTime;
     }
 }
