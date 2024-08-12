@@ -51,7 +51,13 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.CompareTag(targetTag))
+        // If the bullet hits an obstacle, the bullet will be destroyed
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else if (!other.gameObject.CompareTag(targetTag))
             return;
 
         Debug.Log(other.gameObject.name);
