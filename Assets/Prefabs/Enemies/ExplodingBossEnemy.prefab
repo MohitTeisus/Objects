@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7692121492995465785}
   - component: {fileID: 8598154607820228982}
   - component: {fileID: 1815004428486498304}
-  - component: {fileID: 3513212921142363934}
+  - component: {fileID: 3001380232182839387}
   m_Layer: 0
   m_Name: ExplodingBossEnemy
   m_TagString: Enemy
@@ -150,7 +150,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.08845919, y: -0.055412292}
@@ -183,7 +183,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3513212921142363934
+--- !u!114 &3001380232182839387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,13 +192,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1252903276153836124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2c56de947e1b4a48be9812a3323e7a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e24baa1a0f3c474bb44d02c84516c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  explodeStartRange: 0
-  explodeRange: 0
-  explodeDelay: 0
+  speed: 3
+  explodeStartRange: 1
+  explodeRange: 1000
+  explodeDelay: 10
   explosionTimerUI: {fileID: 2664292721928352349}
 --- !u!1 &7558855663352348204
 GameObject:
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 1
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0

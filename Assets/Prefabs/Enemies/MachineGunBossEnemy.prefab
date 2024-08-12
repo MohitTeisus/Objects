@@ -178,8 +178,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4316837823669553967}
   - component: {fileID: 7814546561494527488}
-  - component: {fileID: 8310688697132501877}
   - component: {fileID: 6270002166542400034}
+  - component: {fileID: 3598588997711947108}
   m_Layer: 0
   m_Name: MachineGunBossEnemy
   m_TagString: Enemy
@@ -232,22 +232,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8310688697132501877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6765761446445040805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5a055ab59f98f14ca3824078c7ef561, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.5
-  shootRange: 0
-  fireRate: 0
-  bulletPrefab: {fileID: 5500247819183064076, guid: eafc00c62c1788b4086af3d65dc494ef, type: 3}
 --- !u!58 &6270002166542400034
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -277,12 +261,28 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.020682096, y: 0.009627283}
   serializedVersion: 2
   m_Radius: 0.57849365
+--- !u!114 &3598588997711947108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6765761446445040805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33cb90e4092adc842b19e5a818326971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  shootRange: 10
+  fireRate: 2
+  explodingEnemy: {fileID: 1252903276153836124, guid: 0a3417996c2134f48a8c872a8cc276ca, type: 3}
 --- !u!1 &8581238333979889970
 GameObject:
   m_ObjectHideFlags: 0
