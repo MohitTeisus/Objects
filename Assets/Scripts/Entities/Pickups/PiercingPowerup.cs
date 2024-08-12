@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class MultishotPickup : Pickup
+public class PiercingPowerup : Pickup
 {
     private Player player;
     [SerializeField] private float cooldown = 10;
@@ -13,8 +12,8 @@ public class MultishotPickup : Pickup
     {
         base.OnPicked();
         player = GameManager.GetInstance().GetPlayer();
-        player.StartMultishotTimer(cooldown);
-        player.GetComponent<CooldownDisplay>().CooldownUI(cooldown, 1);
+        player.StartPiercingTimer(cooldown);
+        player.GetComponent<CooldownDisplay>().CooldownUI(cooldown, 4);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

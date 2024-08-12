@@ -11,7 +11,8 @@ public class Player : PlayableObject
 
     [SerializeField] private float weaponDamage = 1;
     [SerializeField] private float bulletSpeed = 10;
-    [SerializeField] private Bullet bulletPrefab;
+    [SerializeField] private Bullet bulletPrefab, piercingBulletPrefab;
+
     private GameManager gameManager;
 
     private float timer;
@@ -31,6 +32,9 @@ public class Player : PlayableObject
     private float baseSpeed;
     private float speedboostMultiplier;
     private float speedboostTimer;
+
+    private bool piercingEnabled;
+    private float piercingTimer;
 
     private Rigidbody2D playerRB;
 
@@ -54,7 +58,12 @@ public class Player : PlayableObject
 
     private void Start()
     {
+        
+    }
 
+    private void FixedUpdate()
+    {
+        
     }
 
     /// <summary>
@@ -143,15 +152,35 @@ public class Player : PlayableObject
             
     }
 
+    public void StartPiercingTimer(float timer)
+    {
+        piercingTimer = timer;
+
+
+        if (piercingTimer > 0)
+        {
+            piercingEnabled = true;
+            piercingTimer -= Time.deltaTime;
+        }
+        else if (piercingTimer <= 0)
+        {
+            piercingEnabled = false;
+        }
+    }
     /// <summary>
     /// Responsible for making the player shoot
     /// </summary>
     public override void Shoot()
     {
+        var bullet = bulletPrefab;
+
+        if (piercingEnabled)
+            bullet = piercingBulletPrefab;
+            
         if (multishotEnabled == true)
-            weapon.ShootMultiple(bulletPrefab, this, "Enemy", 3f);
+            weapon.ShootMultiple(bullet, this, "Enemy", 3f);
         else
-            weapon.Shoot(bulletPrefab, this, "Enemy", 3f);
+            weapon.Shoot(bullet, this, "Enemy", 3f);
     }
 
     public override void Die()
@@ -208,9 +237,13 @@ public class Player : PlayableObject
 
     public void SetSpeedMult(float _speedMultiplier)
     {
-        Mathf.Clamp(speed, 0, 2);
         speedboostMultiplier = _speedMultiplier;
         speed *= speedboostMultiplier;
+        if (speed > 600)
+        {
+            speed = 600;
+        }
+
     }
 
     public override void Attack(float interval)
