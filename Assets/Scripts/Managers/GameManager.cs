@@ -9,7 +9,10 @@ public class GameManager : MonoBehaviour
     [Header("Game Attributes")]
     [SerializeField] private GameObject[] bossEnemyPrefab;
     [SerializeField] private GameObject[] enemyPrefab;
+    [SerializeField] private GameObject[] obstaclePrefab;
     [SerializeField] private Transform[] spawnPositions;
+    [SerializeField] private Transform[] obstacleSpawnPositions;
+    [SerializeField] private Transform[] obstacleTargets;
     [SerializeField] private float enemySpawnRate;
     [SerializeField] private GameObject playerPrefab;
     
@@ -24,7 +27,9 @@ public class GameManager : MonoBehaviour
 
     private GameObject tempBossEnemy;
     private GameObject tempEnemy;
+    private GameObject tempObstacle;
     public bool isEnemySpawning;
+    public bool isObstacleSpawning;
     private int enemiesSpawned;
 
     private Weapon meleeWeapon = new Weapon("Melee", 1f , 0f);
@@ -103,12 +108,37 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void CreateObstacle()
+    {
+        if (FindObjectsOfType(typeof(Obstacle)).Length >= 2)
+            return;
+
+        int index = UnityEngine.Random.Range(0, obstaclePrefab.Length);
+        tempObstacle = Instantiate(obstaclePrefab[index]);
+        // Set Spawn
+        int spawnPoint = UnityEngine.Random.Range(0, obstacleSpawnPositions.Length);
+        tempObstacle.transform.position = obstacleSpawnPositions[spawnPoint].position;
+        // Set the target (The formula selects the opposite direction and picks a spawn from the available points)
+        int target = ((spawnPoint * 3) + 6) % obstacleTargets.Length;
+        Debug.Log(target);
+        target += UnityEngine.Random.Range(0, 3);
+        tempObstacle.GetComponent<Obstacle>().SetObstacleTarget(obstacleTargets[target]);
+    }
+
     IEnumerator EnemySpawner()
     {
         while (isEnemySpawning)
         {
             yield return new WaitForSeconds (1 / enemySpawnRate); 
             CreateEnemy();
+        }
+    }
+    IEnumerator ObstacleSpawner()
+    {
+        while (isObstacleSpawning)
+        {
+            yield return new WaitForSeconds (1); 
+            CreateObstacle();
         }
     }
 
@@ -144,9 +174,11 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         isEnemySpawning = true;
+        isObstacleSpawning = true;
         enemiesSpawned = 0;
         pickUpManager.nukesStored = 0;
         StartCoroutine(EnemySpawner());
+        StartCoroutine(ObstacleSpawner());
     }
 
     public void StopGame()
@@ -159,6 +191,7 @@ public class GameManager : MonoBehaviour
     IEnumerator GameStopper()
     {
         SetEnemySpawnStatus(false);
+        SetObstacleSpawnStatus(false);
         yield return new WaitForSeconds(2.0f);
         isPlaying = false;
 
@@ -174,11 +207,22 @@ public class GameManager : MonoBehaviour
             Destroy(item.gameObject);
         }
 
+        // Destroy leftover obstacles
+        foreach (Obstacle item in FindObjectsOfType(typeof(Obstacle)))
+        {
+            Destroy(item.gameObject);
+        }
+
         OnGameOver?.Invoke();
     }
 
     public void SetEnemySpawnStatus(bool SetEnemySpawn)
     {
         isEnemySpawning = SetEnemySpawn;
+    }
+    
+    public void SetObstacleSpawnStatus(bool SetObstacleSpawn)
+    {
+        isObstacleSpawning = SetObstacleSpawn;
     }
 }
