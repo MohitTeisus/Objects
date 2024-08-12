@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerInputs : MonoBehaviour
 {
+    [SerializeField] SoundManager soundManager;
     private Player player;
     private float horizontal, vertical;
     private Vector2 lookTarget;
@@ -14,6 +15,7 @@ public class PlayerInputs : MonoBehaviour
     private void Start()
     {
         player = GetComponent<Player>();
+        soundManager = FindAnyObjectByType<SoundManager>();
     }
 
     private void Update()
@@ -41,11 +43,13 @@ public class PlayerInputs : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0))
         {
+            soundManager.PlaySound("shoot");
             player.Shoot();
         }
 
         if(Input.GetMouseButtonDown(1))
         {
+            soundManager.PlaySound("nuke");
             player.Nuke();
         }
     }

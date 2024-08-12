@@ -5,6 +5,13 @@ using UnityEngine;
 
 public abstract class Pickup : MonoBehaviour
 {
+    public SoundManager soundManager;
+
+    public virtual void Start()
+    {
+        soundManager = FindAnyObjectByType<SoundManager>();
+    }
+
     private float timer = 15;
 
     public virtual void Update()
@@ -18,6 +25,7 @@ public abstract class Pickup : MonoBehaviour
 
     public virtual void OnPicked()
     {
+        soundManager.PlaySound("power-up");
         Destroy(gameObject);
     }
 }

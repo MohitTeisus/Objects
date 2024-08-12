@@ -13,6 +13,7 @@ public class Player : PlayableObject
     [SerializeField] private float bulletSpeed = 10;
     [SerializeField] private Bullet bulletPrefab, piercingBulletPrefab;
 
+    [SerializeField] private SoundManager soundManager;
     private GameManager gameManager;
 
     private float timer;
@@ -54,6 +55,7 @@ public class Player : PlayableObject
         cam = Camera.main;
 
         baseSpeed = speed;
+        soundManager = FindAnyObjectByType<SoundManager>();
     }
 
     private void Start()
@@ -135,6 +137,7 @@ public class Player : PlayableObject
             {
                 Shoot();
                 machineGunFireTimer = 0;
+                soundManager.PlaySound("shoot");
             }
         }
     }
@@ -195,6 +198,7 @@ public class Player : PlayableObject
     {
         if (isInvincible)
             return;
+        soundManager.PlaySound("damaged");
 
         Debug.Log("Player damaged = " + damage); 
         health.DeductHealth(damage);
