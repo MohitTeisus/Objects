@@ -37,6 +37,10 @@ public class GameManager : MonoBehaviour
     private Player player;
     private bool isPlaying = false;
 
+    public static bool isPaused;
+    public Action onGamePaused;
+
+
     private static GameManager instance;
 
     public static GameManager GetInstance()
@@ -56,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-       
+        
     }
     
     /// <summary>
@@ -152,15 +156,24 @@ public class GameManager : MonoBehaviour
     public void StopGame()
     {
         scoreManager.SetHighScore();
+        isPlaying = false;
+
+        if (isPaused)
+            PauseGame();
+
+        if (player.gameObject.activeSelf == true)
+            Destroy(player.gameObject);
 
         StartCoroutine(GameStopper());
     }
 
     IEnumerator GameStopper()
     {
+        
         SetEnemySpawnStatus(false);
         yield return new WaitForSeconds(2.0f);
-        isPlaying = false;
+        
+        
 
         //Delete All Enemies
         foreach (Enemy item in FindObjectsOfType(typeof(Enemy)))
@@ -174,11 +187,29 @@ public class GameManager : MonoBehaviour
             Destroy(item.gameObject);
         }
 
+      
+        
+
         OnGameOver?.Invoke();
     }
 
     public void SetEnemySpawnStatus(bool SetEnemySpawn)
     {
         isEnemySpawning = SetEnemySpawn;
+    }
+
+    public void PauseGame()
+    {
+        if (!isPaused)
+        {
+            Time.timeScale = 0f;
+            isPaused = true;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            isPaused = false;
+        }
+        onGamePaused?.Invoke();
     }
 }

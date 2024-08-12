@@ -8,6 +8,7 @@ public class PlayerInputs : MonoBehaviour
     private Player player;
     private float horizontal, vertical;
     private Vector2 lookTarget;
+
     
 
     private void Start()
@@ -18,6 +19,16 @@ public class PlayerInputs : MonoBehaviour
     private void Update()
     {
         if (!GameManager.GetInstance().IsPlaying())
+            return;
+
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.GetInstance().PauseGame();
+        }
+
+
+        if (GameManager.isPaused)
             return;
 
         horizontal = Input.GetAxis("Horizontal");

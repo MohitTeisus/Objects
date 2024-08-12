@@ -7,6 +7,10 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float moveSpeed;
 
+
+    [SerializeField] private bool isPiercing = false;
+    private float entitiesPierced;
+
     private string targetTag;
 
     public void SetBullet(float _damage, float _speed, string _targetTag)
@@ -24,12 +28,19 @@ public class Bullet : MonoBehaviour
 
     void Move()
     {
-        transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+        transform.Translate(moveSpeed * Time.deltaTime * Vector2.right);
     }
 
     void Damage(IDamageable damageable)
     {
-        if(damageable != null)
+        if (damageable != null && isPiercing)
+        {
+            damageable.GetDamage(damage);
+            entitiesPierced++;
+            if (entitiesPierced >= 3)
+                Destroy(gameObject);
+        }
+        else if(damageable != null)
         {
             damageable.GetDamage(damage);
             Debug.Log($"Damage Something");

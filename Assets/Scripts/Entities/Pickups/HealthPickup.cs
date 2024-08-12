@@ -6,6 +6,7 @@ public class HealthPickup : Pickup
 {
     [SerializeField] private float healthMin, healthMax;
 
+   
     public override void OnPicked()
     {
         base.OnPicked();
