@@ -20,7 +20,7 @@ public class ShooterBossEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        health = new Health(10, 0, 10);
+        health = new Health(40, 0, 40);
         setSpeed = speed;
         lineRenderer = gameObject.GetComponent<LineRenderer>();
         lineRenderer.enabled = false;

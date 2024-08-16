@@ -13,7 +13,7 @@ public class MeleeBossEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        health = new Health(25, 1, 25);
+        health = new Health(80, 1, 80);
         setSpeed = speed;
     }
 

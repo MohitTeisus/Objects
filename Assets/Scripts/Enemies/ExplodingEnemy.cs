@@ -16,11 +16,15 @@ public class ExplodingEnemy : Enemy
     private float timer = 0;
     private float setSpeed = 0;
 
+    private Weapon explodingWeapon = new Weapon("Exploder", 20f, 0f);
+
     protected override void Start()
     {
         base.Start();
         health = new Health(1, 0, 1);
         setSpeed = speed;
+
+        GetComponent<Enemy>().weapon = explodingWeapon;
     }
 
     public void SetExplodingEnemy(float _explodeStartRange, float _attackRange, float _attackDelay)

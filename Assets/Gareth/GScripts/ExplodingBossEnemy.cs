@@ -21,7 +21,7 @@ public class ExplodingBossEnemy : Enemy
     {
         base.Start();
         target = GameObject.FindWithTag("Explode").transform;
-        health = new Health(1, 0, 1);
+        health = new Health(20, 0, 20);
         setSpeed = speed;
 
         player = GameObject.FindAnyObjectByType<Player>();

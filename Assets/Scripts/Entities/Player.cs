@@ -146,6 +146,7 @@ public class Player : PlayableObject
         if (gameManager.pickUpManager.nukesStored >= 1)
         {
             gameManager.pickUpManager.nukesStored--;
+            soundManager.PlaySound("nuke");
             foreach (Enemy item in FindObjectsOfType(typeof(Enemy)))
             {
                 Destroy(item.gameObject);
@@ -217,7 +218,7 @@ public class Player : PlayableObject
         if (invincibilityTimer > 0)
         {
             isInvincible = true;
-            multishotTimer -= Time.deltaTime;
+            invincibilityTimer -= Time.deltaTime;
         }
         else if (invincibilityTimer <= 0)
         {

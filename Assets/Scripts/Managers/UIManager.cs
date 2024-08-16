@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Menu")]
     [SerializeField] private GameObject menuCanvas;
+    [SerializeField] private GameObject creditsCanvas;
     [SerializeField] private GameObject gameOverLabel;
     [SerializeField] private TMP_Text txtMenuHighScore;
     [SerializeField] private GameObject pauseMenuCanvas;
@@ -79,6 +80,18 @@ public class UIManager : MonoBehaviour
     {
         gameOverLabel.SetActive(true);
         menuCanvas.SetActive(true);
+    }
+
+    public void Credits()
+    {
+        menuCanvas.SetActive(false);
+        creditsCanvas.SetActive(true);
+    }
+
+    public void ExitCredits()
+    {
+        menuCanvas.SetActive(true);
+        creditsCanvas.SetActive(false);
     }
 
     public void GamePaused()

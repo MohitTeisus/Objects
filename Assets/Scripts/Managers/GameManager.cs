@@ -33,17 +33,17 @@ public class GameManager : MonoBehaviour
     public bool isObstacleSpawning;
     private int enemiesSpawned;
     private int enemyLimit = 10;
-    private int difficulty = 5;
-    private int difficultyTimer = 60;
+    private int difficulty = 10;
+    private int difficultyTimer = 30;
 
     private Weapon meleeWeapon = new Weapon("Melee", 1f , 0f);
     private Weapon explodingWeapon = new Weapon("Exploder", 20f, 0f);
     private Weapon machineGunWeapon = new Weapon("MachineGun", 1.5f, 3f);
     private Weapon shooterWeapon = new Weapon("Shooter", 5f, 14f);
 
-    private Weapon meleeBossWeapon = new Weapon("Melee", 1f, 0f);
+    private Weapon meleeBossWeapon = new Weapon("Melee", 5f, 0f);
     private Weapon explodingBossWeapon = new Weapon("Exploder", 100f, 0f);
-    private Weapon shooterBossWeapon = new Weapon("Shooter", 5f, 14f);
+    private Weapon shooterBossWeapon = new Weapon("Shooter", 20f, 21f);
 
     private float seconds = 0;
 
@@ -89,15 +89,15 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 tempBossEnemy.GetComponent<Enemy>().weapon = meleeBossWeapon;
-                tempBossEnemy.GetComponent<MeleeBossEnemy>().SetMeleeBossEnemy(2, 0.25f);
+                tempBossEnemy.GetComponent<MeleeBossEnemy>().SetMeleeBossEnemy(3, 0.25f);
                 break;
             case 1:
                 tempBossEnemy.GetComponent<Enemy>().weapon = explodingBossWeapon;
-                tempBossEnemy.GetComponent<ExplodingBossEnemy>().SetExplodingBossEnemy(1.5f, 3, 0.75f);
+                tempBossEnemy.GetComponent<ExplodingBossEnemy>().SetExplodingBossEnemy(1.5f, 3, 5f);
                 break;
             case 2:
                 tempBossEnemy.GetComponent<Enemy>().weapon = shooterBossWeapon;
-                tempBossEnemy.GetComponent<ShooterBossEnemy>().SetShooterBossEnemy(2, 0.25f);
+                tempBossEnemy.GetComponent<ShooterBossEnemy>().SetShooterBossEnemy(20, .5f);
                 break;
 
         }
@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
         int increaseThreshold = 50;
         if (enemiesSpawned == increaseThreshold) 
         {
-            enemySpawnRate++;
+            enemySpawnRate += 0.25f;
             enemiesSpawned = 0;
             increaseThreshold += 50;
         }
@@ -172,6 +172,7 @@ public class GameManager : MonoBehaviour
             
             if (seconds >= difficultyTimer)
             {
+                CreateBoss();
                 seconds -= difficultyTimer;
                 enemyLimit += difficulty;
             }

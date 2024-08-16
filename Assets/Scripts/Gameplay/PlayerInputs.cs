@@ -49,7 +49,6 @@ public class PlayerInputs : MonoBehaviour
 
         if(Input.GetMouseButtonDown(1))
         {
-            soundManager.PlaySound("nuke");
             player.Nuke();
         }
     }
