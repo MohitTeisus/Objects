@@ -18,6 +18,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text txtMenuHighScore;
     [SerializeField] private GameObject pauseMenuCanvas;
 
+    [Header("Timer")]
+    [SerializeField] private TMP_Text txtHour;
+    [SerializeField] private TMP_Text txtMinute;
+    [SerializeField] private TMP_Text txtSeconds;
+    [SerializeField] private TMP_Text txtHourColon;
+
     private Player player;  
     private ScoreManager scoreManager;
     private GameManager gameManager;
@@ -107,5 +113,30 @@ public class UIManager : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
+    }
+
+    public void AddToTimer(float seconds)
+    {
+        float hours = Mathf.Floor(seconds / 3600.0f);
+        float minutes = Mathf.Floor((seconds / 60.0f) % 60);
+
+        txtSeconds.SetText((Mathf.Floor(seconds % 60)).ToString());
+
+        if (seconds < 60)
+            return;
+
+        txtMinute.SetText(minutes.ToString());
+
+        if (minutes < 60)
+            return;
+
+        txtHour.SetText(hours.ToString());
+        txtHourColon.gameObject.SetActive(true);
+    }
+
+    public void ResetTimer()
+    {
+        txtHour.SetText("");
+        txtHourColon.gameObject.SetActive(false);
     }
 }
