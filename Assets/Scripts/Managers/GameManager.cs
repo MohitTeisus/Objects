@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     private GameObject tempObstacle;
     public bool isEnemySpawning;
     public bool isObstacleSpawning;
+    public bool isTimerActive = false;
     private int enemiesSpawned;
     private int enemyLimit = 10;
     private int difficulty = 10;
@@ -73,8 +74,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
-        seconds += Time.deltaTime;
+        if (isTimerActive)
+        {
+            seconds += Time.deltaTime;
+            uiManager.AddToTimer(seconds);
+        }
     }
 
     void CreateBoss()
@@ -220,6 +224,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameStarter()
     {
+        isTimerActive = true;
+        uiManager.ResetTimer();
         yield return new WaitForSeconds(2.0f);
         isEnemySpawning = true;
         isObstacleSpawning = true;
@@ -248,6 +254,7 @@ public class GameManager : MonoBehaviour
         
         SetEnemySpawnStatus(false);
         SetObstacleSpawnStatus(false);
+        isTimerActive = false;
         yield return new WaitForSeconds(2.0f);
         
         
