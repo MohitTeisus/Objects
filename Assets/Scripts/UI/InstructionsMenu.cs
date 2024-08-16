@@ -9,7 +9,7 @@ public class InstructionsMenu : MonoBehaviour
 {
     [SerializeField] private GameObject bottomRung;
     [SerializeField] private Image sheet;
-    [SerializeField] private GameObject endPoint;
+    [SerializeField] private GameObject endPoint, startPoint;   
     private float speed = 1;
     private float fillAmountSpeed = 1f;
     private bool isOpen;
@@ -22,7 +22,7 @@ public class InstructionsMenu : MonoBehaviour
     void Start()
     {
         time = 1.1f;
-        startPos = bottomRung.transform.position;
+        startPos = startPoint.transform.position;
         endPos = endPoint.transform.position;
         sheet.fillAmount = 0;
         isOpen = false;
@@ -40,6 +40,8 @@ public class InstructionsMenu : MonoBehaviour
         {
             isOpen = !isOpen;
             time = 0;
+            startPos = startPoint.transform.position;
+            endPos = endPoint.transform.position;
         }
     }
 
