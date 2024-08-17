@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 1252903276153836124}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.145274, y: -3.9450977, z: 0}
+  m_LocalPosition: {x: 1.4139514, y: -2.294255, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -449,7 +449,7 @@ GameObject:
   - component: {fileID: 2193134627038895719}
   - component: {fileID: 8795240180427016547}
   - component: {fileID: 3330281799334631969}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 8268224974793614762}
   - component: {fileID: 8087643606910113403}
   - component: {fileID: 2664292721928352349}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
