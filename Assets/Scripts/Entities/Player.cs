@@ -16,9 +16,6 @@ public class Player : PlayableObject
     [SerializeField] private SoundManager soundManager;
     private GameManager gameManager;
 
-    private float timer;
-    private float firerate;
-
     private float machineGunTimer;
     public bool machineGunEnabled;
     private float machineGunFireRate = 8;
@@ -43,7 +40,7 @@ public class Player : PlayableObject
 
     private void Awake()
     {
-        health = new Health(100, 0.5f, 50);
+        health = new Health(100, 0.2f, 50);
         playerRB = GetComponent<Rigidbody2D>();
         gameManager = GameManager.GetInstance();
 
@@ -94,6 +91,7 @@ public class Player : PlayableObject
         StartMultishotTimer(multishotTimer);
         Invicibility(invincibilityTimer);
         SpeedboostTimer(speedboostTimer);
+        StartPiercingTimer(piercingTimer);
     }
 
     public void StartMachineGunTimer(float timer)
@@ -180,7 +178,7 @@ public class Player : PlayableObject
 
         if (piercingEnabled)
             bullet = piercingBulletPrefab;
-            
+        
         if (multishotEnabled == true)
             weapon.ShootMultiple(bullet, this, "Enemy", 3f);
         else

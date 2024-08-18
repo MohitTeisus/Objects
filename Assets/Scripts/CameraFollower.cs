@@ -18,13 +18,12 @@ public class CameraFollower : MonoBehaviour
         {
             target = GameObject.FindWithTag("Player").transform;
         }
-        catch (NullReferenceException e)
+        catch (NullReferenceException)
         {
-            
+           
         }
-        catch (MissingReferenceException e)
+        catch (MissingReferenceException)
         {
-
 
         }
 

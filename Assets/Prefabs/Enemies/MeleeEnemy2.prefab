@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5023873446111387639}
   - component: {fileID: 7751422960362414013}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5686732001724940144}
   - component: {fileID: 575517508042509357}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6310094239201643498}
   - component: {fileID: 7394393222030839759}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: left hand
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5355972009262259494}
   - component: {fileID: 5017200343523535675}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: right hand
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8417018419485242993}
   - component: {fileID: 5926623268122894693}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 2245979786924746623}
   - component: {fileID: 4066442135705919191}
   - component: {fileID: 1411263062220094933}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MeleeEnemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}

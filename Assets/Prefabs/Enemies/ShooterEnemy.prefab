@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7502434074609718600}
   - component: {fileID: 4992375684693871656}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3436997247320795501}
   - component: {fileID: 3349756262733372736}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: left hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2807352424285940393}
   - component: {fileID: 2054578188313582778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: righthand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8033486979746855047}
   - component: {fileID: 5261798353937778815}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 643288668113805151}
   - component: {fileID: 6714989007789185206}
   - component: {fileID: 2093033710062376196}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShooterEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6311822303858240814}
   - component: {fileID: 8436536210222300427}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

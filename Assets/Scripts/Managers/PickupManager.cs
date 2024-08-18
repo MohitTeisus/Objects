@@ -7,7 +7,7 @@ public class PickupManager : MonoBehaviour
     [SerializeField] private PickupSpawn[] pickups;
 
     [Range(0, 1)]
-    [SerializeField] private float pickupProbability;
+    [SerializeField] private float pickupProbability, defaultPickupProbability, maxPickupProbability;
 
     List<Pickup> pickupPool = new List<Pickup>();
     Pickup chosenPickup;
@@ -17,6 +17,8 @@ public class PickupManager : MonoBehaviour
 
     private void Start()
     {
+        ResetPickUpProbability();
+
         //populate pool of pickup with pickups
         foreach (PickupSpawn spawn in pickups)
         {
@@ -42,7 +44,17 @@ public class PickupManager : MonoBehaviour
         }
     }
 
+    public void IncreasePickUpSpawns(float increase)
+    {
+        pickupProbability += increase;
+        if (pickupProbability > maxPickupProbability)
+            pickupProbability = maxPickupProbability;
+    }
 
+    public void ResetPickUpProbability()
+    {
+        pickupProbability = defaultPickupProbability;
+    }
 }
 
 [System.Serializable]

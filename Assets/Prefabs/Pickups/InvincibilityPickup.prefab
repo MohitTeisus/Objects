@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833c5f5676d089548a49bfd539c8b8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 10
+  soundManager: {fileID: 0}
+  duration: 7
 --- !u!50 &1408416284937522411
 Rigidbody2D:
   serializedVersion: 4

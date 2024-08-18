@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8422681915566059885}
   - component: {fileID: 3852073085711573014}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8598154607820228982}
   - component: {fileID: 1815004428486498304}
   - component: {fileID: 3513212921142363934}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ExplodingEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 1252903276153836124}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4139514, y: -2.294255, z: 0}
+  m_LocalPosition: {x: 15.73906, y: -2.224782, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -212,7 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8865540988753067173}
   - component: {fileID: 2635334949568259714}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 661486593413330034}
   - component: {fileID: 806665806463444114}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8839733708726847715}
   - component: {fileID: 720874369008970631}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ GameObject:
   - component: {fileID: 2193134627038895719}
   - component: {fileID: 8795240180427016547}
   - component: {fileID: 3330281799334631969}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 8268224974793614762}
   - component: {fileID: 8087643606910113403}
   - component: {fileID: 2664292721928352349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}

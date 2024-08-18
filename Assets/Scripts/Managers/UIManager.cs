@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
     public void UpdateHighScoreUI()
     {
         txtHighScore.SetText(scoreManager.GetHighScore().ToString());
-        txtMenuHighScore.SetText($"High Score: {scoreManager.GetHighScore().ToString()}");
+        txtMenuHighScore.SetText($"HIGH SCORE: {scoreManager.GetHighScore().ToString()}");
     }
 
     public void UpdateNukeStorageUI(int nukeStored)
@@ -133,17 +133,25 @@ public class UIManager : MonoBehaviour
         float hours = Mathf.Floor(seconds / 3600.0f);
         float minutes = Mathf.Floor((seconds / 60.0f) % 60);
 
-        txtSeconds.SetText((Mathf.Floor(seconds % 60)).ToString());
+        //Debug.Log(Mathf.Floor(seconds % 60));
+
+        if (Mathf.Floor(seconds % 60) < 10)
+            txtSeconds.SetText("0" + (Mathf.Floor(seconds % 60)).ToString());
+        else
+            txtSeconds.SetText((Mathf.Floor(seconds % 60)).ToString());
 
         if (seconds < 60)
             return;
 
-        txtMinute.SetText(minutes.ToString());
+        if (Mathf.Floor(minutes % 60) < 10)
+            txtMinute.SetText("0" + minutes.ToString());
+        else
+            txtMinute.SetText(minutes.ToString());
 
         if (minutes < 60)
             return;
 
-        txtHour.SetText(hours.ToString());
+        txtHour.SetText("0" + hours.ToString() + ":");
         txtHourColon.gameObject.SetActive(true);
     }
 

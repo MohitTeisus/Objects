@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefab;
     [SerializeField] private GameObject[] obstaclePrefab;
     [SerializeField] private Transform[] spawnPositions;
+    [SerializeField] private Transform[] exploderBossSpawnPositions;
     [SerializeField] private Transform[] obstacleSpawnPositions;
     [SerializeField] private Transform[] obstacleTargets;
     [SerializeField] private float enemySpawnRate;
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
     private Weapon shooterBossWeapon = new Weapon("Shooter", 20f, 21f);
 
     private float seconds = 0;
+    private float timeAlive = 0;
 
     private Player player;
     private bool isPlaying = false;
@@ -77,7 +79,8 @@ public class GameManager : MonoBehaviour
         if (isTimerActive)
         {
             seconds += Time.deltaTime;
-            uiManager.AddToTimer(seconds);
+            timeAlive += Time.deltaTime;
+            uiManager.AddToTimer(timeAlive);
         }
     }
 
@@ -98,6 +101,7 @@ public class GameManager : MonoBehaviour
             case 1:
                 tempBossEnemy.GetComponent<Enemy>().weapon = explodingBossWeapon;
                 tempBossEnemy.GetComponent<ExplodingBossEnemy>().SetExplodingBossEnemy(1.5f, 3, 5f);
+                tempBossEnemy.transform.position = exploderBossSpawnPositions[UnityEngine.Random.Range(0,exploderBossSpawnPositions.Length)].position;
                 break;
             case 2:
                 tempBossEnemy.GetComponent<Enemy>().weapon = shooterBossWeapon;
@@ -179,6 +183,7 @@ public class GameManager : MonoBehaviour
                 CreateBoss();
                 seconds -= difficultyTimer;
                 enemyLimit += difficulty;
+                pickUpManager.IncreasePickUpSpawns(0.025f);
             }
 
             yield return new WaitForSeconds (1 / enemySpawnRate); 
@@ -213,6 +218,7 @@ public class GameManager : MonoBehaviour
     {
         player = Instantiate(playerPrefab, Vector2.zero, Quaternion.identity).GetComponent<Player>();
         seconds = 0;
+        timeAlive = 0;
         enemySpawnRate = 1;
 
         player.onDeath += StopGame;
@@ -224,6 +230,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameStarter()
     {
+        pickUpManager.ResetPickUpProbability();
         isTimerActive = true;
         uiManager.ResetTimer();
         yield return new WaitForSeconds(2.0f);

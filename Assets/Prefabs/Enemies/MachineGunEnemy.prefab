@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8501674979309391601}
   - component: {fileID: 6656521768092814037}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7375304617454074760}
   - component: {fileID: 1166917927252590324}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6800905321922018430}
   - component: {fileID: 2398986925655366657}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 7814546561494527488}
   - component: {fileID: 8310688697132501877}
   - component: {fileID: 6270002166542400034}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MachineGunEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 699318509150179392}
   - component: {fileID: 1528820322103674216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9016599052877573539}
   - component: {fileID: 5676367580387628374}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
