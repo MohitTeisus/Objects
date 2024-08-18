@@ -1108,10 +1108,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2026295834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 487, y: -234}
-  m_SizeDelta: {x: 111.8, y: 5.1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -117.599976, y: 81}
+  m_SizeDelta: {x: 111.79999, y: 27.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &210490866
 MonoBehaviour:
@@ -8564,8 +8564,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 1705050475}
-  pulseSpeed: 0.1
-  pulseDistance: 1
+  pulseSpeed: 1
+  pulseDistance: 0.2
   pulseOffset: 2
   spinSpeed: 15
 --- !u!114 &1705050477
@@ -10091,7 +10091,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &2026295834
 RectTransform:
@@ -10424,9 +10424,9 @@ RectTransform:
   - {fileID: 131874859}
   m_Father: {fileID: 2026295834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 484.6, y: -270}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -120, y: 45}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2077231847
@@ -10918,6 +10918,7 @@ SceneRoots:
   - {fileID: 1935090763}
   - {fileID: 1549173051}
   - {fileID: 1918841149}
+  - {fileID: 2026295834}
   - {fileID: 805586979}
   - {fileID: 2027487947}
   - {fileID: 324762000}
@@ -10926,4 +10927,3 @@ SceneRoots:
   - {fileID: 2033685394}
   - {fileID: 1691999914}
   - {fileID: 13639051}
-  - {fileID: 2026295834}
